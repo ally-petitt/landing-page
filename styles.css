@@ -205,6 +205,7 @@ nav {
 
 .svg-container path {
   height: 100px;
+  transition: all 0.5s ease;
 }
 
 .content-box {
@@ -215,6 +216,65 @@ nav {
   transform: translateX(-50%);
 }
 
+path {
+  stroke: #ff872c;
+  stroke-width: 6;
+  transition: fill 0.5s ease;
+}
+
 .movie-clapper path {
-  stroke-width: 2px;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+}
+
+.movie-clapper:hover path {
+  animation: drawMovie 1.5s linear forwards;
+}
+
+.lock path {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+}
+
+.lock:hover path {
+  animation: drawLock 1.5s linear forwards;
+}
+
+.settings path {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+}
+
+/*keyframes*/
+@keyframes drawMovie {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  40% {
+    stroke-dashoffset: 1200;
+  }
+  90% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1200;
+  }
+}
+
+@keyframes drawLock {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  40% {
+    stroke-dashoffset: 900;
+  }
+  80% {
+    stroke-dashoffset: 1800;
+    fill: url("#paint0_linear");
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
 }
