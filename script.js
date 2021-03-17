@@ -7,6 +7,8 @@ $(".card").click((e) => {
     svgContainerClass: $("." + cardClass + " .svg-container")
       .attr("class")
       .split(" ")[1],
+    contentBox: $("." + cardClass + " .content-box"),
+    isSettings: cardClass == "card3",
     largeCircle: "circle(300px at 90% -10%)",
     smallCircle: "circle(150px at 90% 10%)",
   };
@@ -18,18 +20,27 @@ $(".card").click((e) => {
   }
 });
 
-function setCard({ cardBubble, largeCircle, svgContainerClass }) {
+function setCard({ cardBubble, largeCircle, svgContainerClass, contentBox }) {
   cardBubble.css("clip-path", largeCircle);
   $("." + svgContainerClass + " > svg").attr({
     width: "100",
     height: "100",
   });
+  contentBox.css("top", "60%");
 }
 
-function resetAllCards({ cardBubble, smallCircle, svgContainerClass }) {
+function resetAllCards({
+  cardBubble,
+  smallCircle,
+  svgContainerClass,
+  contentBox,
+}) {
   cardBubble.css("clip-path", smallCircle);
   $("." + svgContainerClass + " svg").attr({
     width: "150",
     height: "150",
+  });
+  contentBox.css({
+    top: "85%",
   });
 }
