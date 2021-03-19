@@ -254,6 +254,40 @@ path {
   animation: drawLock 1.5s linear forwards;
 }
 
+/* cta section */
+.cta {
+  margin: 40px;
+  padding: 30px;
+}
+.cta-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2rem;
+}
+
+.cta-btn {
+  position: relative;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  background-image: linear-gradient(90deg, #fd3a2d, #ffa12c);
+}
+
+span {
+  position: absolute;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: rippleButton 1s linear;
+}
+
 /*keyframes*/
 @keyframes drawMovie {
   0% {
@@ -284,5 +318,18 @@ path {
   }
   100% {
     stroke-dashoffset: 900;
+  }
+}
+
+@keyframes rippleButton {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
   }
 }

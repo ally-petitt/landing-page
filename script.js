@@ -44,3 +44,20 @@ function resetAllCards({
     top: "85%",
   });
 }
+
+/* ripple effect on button */
+$(".cta-btn").click((e) => {
+  let x = e.clientX - e.target.offsetLeft;
+  let y = e.target.offsetTop;
+
+  let ripples = document.createElement("span");
+  $(ripples).css({
+    left: x + "px",
+    bottom: y + "px",
+  });
+  $(".cta-btn").append(ripples);
+
+  // setTimeout(() => {
+  //   ripples.remove();
+  // }, 1000);
+});
